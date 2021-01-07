@@ -1,0 +1,91 @@
+use education
+
+db.students.insert(
+    {
+        firstName: 'Руслан',
+        lastName: 'Корченов',
+        age: 20,
+        gender: 'male'
+    }
+    );
+
+db.students.insert(
+    {
+        firstName: 'Тимон',
+        lastName: 'Пумба',
+        age: 11,
+        gender: 'male'
+    }
+    );
+
+db.students.insert(
+    {
+        firstName: 'Марина',
+        lastName: 'Май',
+        age: 23,
+        gender: 'female'
+    }
+    );
+
+db.courses.insert(
+    {
+        name: "Java",
+        teacher: {
+            firstName: "Марсель",
+            lastName: "Сидиков"
+        },
+        hours: 72
+    }
+    );
+
+db.courses.insert(
+    {
+        name: "Python",
+        teacher: {
+            firstName: "Михаил",
+            lastName: "Абрамский"
+        },
+        hours: 48
+    }
+    );
+
+db.lessons.insert(
+    {
+        name: "MongoDB",
+        hours: 2,
+        course: ObjectId('5fb2c50980a62141e3a88e1b')
+    }
+    );
+
+db.lessons.insert(
+    {
+        name: "Parsing",
+        hours: 6,
+        course: ObjectId('5fb2c50980a62141e3a88e1c')
+    }
+    );
+
+db.students.update(
+    {firstName: "Руслан"},
+    {$set: {
+        course: ObjectId('5fb2c50980a62141e3a88e1b')
+        }}
+    )
+
+db.students.update(
+    {firstName: "Марина"},
+    {$set: {
+            course: ObjectId('5fb2c50980a62141e3a88e1c')
+        }}
+    )
+
+// Вывести всех студентов мужского пола
+db.students.find({gender: 'male'});
+
+db.students.find({course: ObjectId('5fb2c50980a62141e3a88e1b')});
+
+// Вывести всех студентов девушек или кто записан на Course = Java
+db.students.find({$or:[{gender: 'female'}, {course: ObjectId('5fb2c50980a62141e3a88e1b')}]});
+
+// Вывести все курсы, длительность которы меньше или равно 72
+db.courses.find({hours: {$lte: 72}});

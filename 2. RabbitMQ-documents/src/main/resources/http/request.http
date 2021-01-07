@@ -1,0 +1,46 @@
+POST http://localhost:8080/dismissal
+Content-Type: application/json
+
+{
+    "firstName": "Ruslan",
+    "lastName": "Korchenov",
+    "passportNumber": "9000 123123",
+    "passportDate": "21.03.2011",
+    "age": 20
+}
+
+###
+POST http://localhost:8080/reference/income
+Content-Type: application/json
+
+{
+  "firstName": "Ruslan",
+  "lastName": "Korchenov",
+  "passportNumber": "9000 123123",
+  "passportDate": "21.03.2011",
+  "age": 20
+}
+###
+
+POST http://localhost:8080/reference/medical
+Content-Type: application/json
+
+{
+  "firstName": "Ruslan",
+  "lastName": "Korchenov",
+  "passportNumber": "9000 123123",
+  "passportDate": "21.03.2011",
+  "age": 20
+}
+###
+
+POST http://localhost:8080/end
+Content-Type: application/json
+
+{
+"firstName": "Ruslan",
+"lastName": "Korchenov",
+"passportNumber": "9000 123123",
+"passportDate": "21.03.2011",
+"age": 20
+}
