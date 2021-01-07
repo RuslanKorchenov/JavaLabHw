@@ -1,0 +1,10 @@
+models\User.class
+services\HtmlGenerator.class
+models\Input.class
+annotations\HtmlForm.class
+models\Input$InputBuilder.class
+models\Form$FormBuilder.class
+META-INF\services\javax.annotation.processing.Processor
+annotations\HtmlInput.class
+HtmlProcessor.class
+models\Form.class
